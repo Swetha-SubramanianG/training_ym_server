@@ -35,7 +35,7 @@ export const authLogin=async(req,res)=>{
         const{email,password}=req.body
         const user=await AuthUserModel.userLoginModel(email);
 
-        if(!user){
+        if(!email||!password){
             return res.status(400).json({message:"invalid email"})
         }
         
